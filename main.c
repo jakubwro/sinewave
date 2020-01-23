@@ -14,7 +14,7 @@ int main()
 
     printf("\nBuffer content: \n");
     for (int i = 0; i < length; ++i)
-        printf("%lf, ", buffer[i]);
+        printf("%lf, %s", buffer[i], (i+1) % 8 ? "" : "\n");
 
     printf("\n\nCurrent sample: %lf\n\n", sine->current);
 
