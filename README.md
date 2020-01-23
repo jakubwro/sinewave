@@ -5,7 +5,7 @@ This is a tiny example C library to write a tutorial about adding binary deps to
 ## Example
 
 ```bash
-> gcc sinewave.c main.c -o sine
+> gcc sinewave.c examples/fill_and_print_buffer.c -o sine -I.
 > ./sine
 
 Current sample: 0.000000
