@@ -1,5 +1,5 @@
-#include "sinewave.h"
 #include <math.h>
+#include "sinewave.h"
 
 int init(sinewave *sine, double frequency, double samplerate)
 {

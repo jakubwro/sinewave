@@ -1,4 +1,3 @@
-
 typedef struct sinewave
 {
     double previous;
