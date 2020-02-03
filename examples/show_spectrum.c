@@ -9,23 +9,23 @@ int main()
     if (res != 0)
         printf("Init failed for given args\n");
 
-    printf("\nCurrent sample: %lf\n", sine->current);
-
-    size_t length = 64;
+    size_t length = 256;
     double *buffer = malloc(length * sizeof(double));
     if (buffer == NULL)
         printf("Memory allocation failed\n");
     
     fill(sine, buffer, length);
+    double* spectr = spectrum(buffer, length);
 
-    printf("\nBuffer content: \n");
-    for (int i = 0; i < length; ++i)
-        printf("%lf, %s", buffer[i], (i+1) % 8 ? "" : "\n");
+    printf("\nSpectrum: \n");
+    for (int i = 0; i < length/2+1; ++i)
+        printf("%lf, %s", spectr[i], (i+1) % 8 ? "" : "\n");
 
     printf("\n\nCurrent sample: %lf\n\n", sine->current);
 
     free(buffer);
     free(sine);
+    free(spectr);
     
     return 0;
 }

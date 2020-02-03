@@ -3,7 +3,7 @@ CPPFLAGS += -I.
 # Flags for the C compiler
 CFLAGS   ?= -std=gnu99
 # Flags for the linker
-LDFLAGS  += -lm
+LDFLAGS  += -lm -lfftw3
 
 # Some variables used to install the products of compilation:
 #  * `prefix`: prefix where the executable and the shared library will be
@@ -32,11 +32,12 @@ endif
 
 # Names of files we want to generate
 SINE_EXE     := sine$(exeext)
+SPECTRUM_EXE := spectrum$(exeext)
 SINEWAVE_LIB := libsinewave.$(dlext)
 
 .PHONY: all clean
 
-all: $(SINEWAVE_LIB) $(SINE_EXE)
+all: $(SINEWAVE_LIB) $(SINE_EXE) $(SPECTRUM_EXE)
 
 install: all
 	mkdir -p $(bindir)
@@ -49,6 +50,10 @@ $(SINEWAVE_LIB): sinewave.c sinewave.h
 
 $(SINE_EXE): $(SINEWAVE_LIB) examples/fill_and_print_buffer.c
 	cc $(CPPFLAGS) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+
+$(SPECTRUM_EXE): $(SINEWAVE_LIB) examples/show_spectrum.c
+	cc $(CPPFLAGS) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+
 
 clean:
 	rm -f $(SINEWAVE_LIB) $(SINE_EXE)

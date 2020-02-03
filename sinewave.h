@@ -16,3 +16,8 @@ int init(sinewave *sine, double frequency, double samplerate);
     parameter.
 */
 void fill(sinewave *sine, double *buffer, int length);
+
+/*
+    Generates frequency power spectrum of the given buffer 
+*/
+double* spectrum(double *buffer, int length);
