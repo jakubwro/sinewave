@@ -1,5 +1,5 @@
 # Flags for the C/C++ preprocessor
-CPPFLAGS += -I. -I/usr/include
+CPPFLAGS += -I.
 # Flags for the C compiler
 CFLAGS   ?= -std=gnu99
 # Flags for the linker
