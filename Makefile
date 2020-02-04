@@ -54,6 +54,5 @@ $(SINE_EXE): $(SINEWAVE_LIB) examples/fill_and_print_buffer.c
 $(SPECTRUM_EXE): $(SINEWAVE_LIB) examples/show_spectrum.c
 	cc $(CPPFLAGS) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
-
 clean:
-	rm -f $(SINEWAVE_LIB) $(SINE_EXE)
+	rm -f $(SINEWAVE_LIB) $(SINE_EXE) $(SPECTRUM_EXE)
